@@ -1,0 +1,226 @@
+{
+	"info": {
+		"_postman_id": "",
+		"name": "DigitalOcean",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": ""
+	},
+	"item": [
+		{
+			"name": "Database",
+			"item": [
+				{
+					"name": "List of Database Clusters",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/v2/databases",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"v2",
+								"databases"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve a Database Cluster",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/v2/databases/{{database_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"v2",
+								"databases",
+								"{{database_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve a Database Cluster Configuration",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/v2/databases/{{database_id}}/config",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"v2",
+								"databases",
+								"{{database_id}}",
+								"config"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Patch a Database Cluster Configuration Copy",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"config\": {\n        \"redis_maxmemory_policy\": \"allkeys-lru\",\n        \"redis_lfu_log_factor\": 10,\n        \"redis_lfu_decay_time\": 1,\n        \"redis_ssl\": true,\n        \"redis_timeout\": 300,\n        \"redis_notify_keyspace_events\": \"Ex\",\n        \"redis_persistence\": \"rdb\",\n        \"redis_acl_channels_default\": \"allchannels\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/v2/databases/{{database_id}}/config",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"v2",
+								"databases",
+								"{{database_id}}",
+								"config"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List of Database Options",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/v2/databases/options",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"v2",
+								"databases",
+								"options"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User Information",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/v2/account",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"v2",
+						"account"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List of Apps",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/v2/apps",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"v2",
+						"apps"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
